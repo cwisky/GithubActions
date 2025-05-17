@@ -87,6 +87,12 @@ This message shows that your installation appears to be working correctly.
 | 원격 서버     | ✅ Remote - SSH |
 | YAML 편집   | ✅ YAML         |
 
+## github.com 리파지토리에서 로컬 리파지토리에 프로젝트 복제하기
+* git init
+* git clone https://github.com/cwisky/GithubActions.git
+* cd GithubActions
+* 복제된 리파지토리 안에서 아래의 파일들을 새로 생성
+
 ## [2단계] WSL 또는 VSCode에서 Python + Docker 프로젝트 작성  
 📁 예시 프로젝트 구조  
 ```text
@@ -138,9 +144,6 @@ git add .
 git commit -m "Initial commit"
 git push -u origin main
 ```
-* git init
-  + Initialized empty Git repository in C:/python_code_prj/.git/
-  + 
 
 ## 처음 push 할 때 표시되는 인증창 처리(GitHub Sign in)
 * git push -u origin main 처음 명령에 아래의 로그인 창이 표시됨
@@ -153,4 +156,24 @@ git push -u origin main
 * 폰에 받은 인증 코드를 브라우저에 입력
 * Authentication Succeeded
 * You may now close this tab and return to the application.
-* 
+* github.com 해당 리파지토리에 프로젝트가 로드되어 있는지 확인
+
+## [4단계] AWS EC2 서버 준비
+* 설정요약
+| 항목        | 설명                                    |
+| --------- | ------------------------------------- |
+| OS        | Ubuntu 22.04 추천                       |
+| 공개키 등록    | GitHub Actions에서 접속할 수 있도록 SSH 공개키 등록 |
+| 보안그룹      | 포트 22 (SSH), 80, 443 열기               |
+| Docker 설치 | 아래 명령 실행                              |
+```bash
+sudo apt update
+sudo apt install -y docker.io
+sudo usermod -aG docker ubuntu
+newgrp docker
+```
+* 설치된 Docker 테스트
+```docker
+docker run hello-world
+```
+

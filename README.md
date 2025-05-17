@@ -43,6 +43,7 @@ jobs:
 ## YML 핵심 구성요소 설명
 
 |용어	|설명	|예시|
+|-----|-----|-----|
 |Workflow|	.github/workflows/*.yml 파일로 저장	|ci.yml, deploy.yml 등|
 |Event|	워크플로우를 트리거하는 조건	|push, pull_request, schedule, workflow_dispatch 등|
 |Job|	하나 이상의 Step으로 구성된 실행 단위	|build, deploy|

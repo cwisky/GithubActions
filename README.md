@@ -1,4 +1,8 @@
 # Github Actions
+* GitHub Actions는 GitHub 저장소에 연결된 자동화 시스템이며,
+* 사용자가 정의한 .yml 파일에 따라 코드의 변경을 감지하고 자동으로 작업을 수행하는 플랫폼.
+* 그 핵심은 워크플로우 → 이벤트 → 작업 → 단계 구조이며, 모든 설정은 GitHub UI의 Actions 탭과 .yml 파일로 연결되어 있다.
+  
 ## GitHub Actions란? (개념 정의)
 * GitHub Actions는 GitHub 저장소 안에서 코드를 자동으로 빌드, 테스트, 배포할 수 있도록 만들어진 자동화(Automation) 시스템.
 * 코드 변경(push, PR, schedule)을 감지하여

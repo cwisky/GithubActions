@@ -45,8 +45,16 @@ wsl --install -d Ubuntu
 * 설치 후 Docker Desktop 실행(Docker 명령을 사용할 때는 항상 실행된 상태여야 함)
 
 ## Docker Desktop 처음 실행
-* Accept 
+* Accept
+* WSL 자동 실행창 표시,닫아도 됨
+* work/Person 선택 > Google 로그인
 
-## Docker Desktop 실행시 오류가 발생하면...
-* wsl --install -d Ubuntu
-* 
+## WSL, Docker Desktop 통합
+* WSL 기반 개발환경과 Docker가 완벽하게 통합되어 VSCode + WSL 개발에서 매우 중요
+* Docker Desktop 실행 → 오른쪽 상단 톱니바퀴(⚙️) 클릭 → Settings 열기
+* 좌측 메뉴에서 → "Resources" → "WSL Integration" 클릭
+* 설치된 WSL 배포판 목록(Ubuntu 등)이 표시됨  
+→ 여기서 Ubuntu 옆에 있는 스위치(✔️) 를 켜면 통합 활성화됨
+* 설정 저장 후 Docker Desktop 재시작 권장
+
+## 

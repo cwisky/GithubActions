@@ -32,4 +32,5 @@ wsl --install -d Ubuntu
 ## Ubuntu 수동 설치 (WSL Store 우회)
 * 만약 wsl --install이 계속 실패한다면,
 * Microsoft Store 대신 수동으로 Ubuntu 패키지를 설치
+* https://aka.ms/wslubuntu2204
 * 

@@ -53,7 +53,7 @@ wsl --install -d Ubuntu
 * WSL 기반 개발환경과 Docker가 완벽하게 통합되어 VSCode + WSL 개발에서 매우 중요
 * Docker Desktop 실행 → 오른쪽 상단 톱니바퀴(⚙️) 클릭 → Settings 열기
 * 좌측 메뉴에서 → "Resources" → "WSL Integration" 클릭
-* 설치된 WSL 배포판 목록(Ubuntu 등)이 표시됨  
+* 설치된 WSL 배포판 목록(Ubuntu 등)이 표시됨, 디폴트로 선택되어 있음
 → 여기서 Ubuntu 옆에 있는 스위치(✔️) 를 켜면 통합 활성화됨
 * 설정 저장 후 Docker Desktop 재시작 권장
 
@@ -72,7 +72,7 @@ This message shows that your installation appears to be working correctly.
 ```
 
 ## VS Code와 WSL 통합
-* VS Code의 콘솔에서 Docker 명령어를 수행할 수 있게 함
+* VS Code의 콘솔에서 Docker 명령어를 수행할 수 있음
 * wsl extentension 설치(아래의 목록 참조)
 
 | 목적        | 확장             |
@@ -83,3 +83,39 @@ This message shows that your installation appears to be working correctly.
 | Git 추적    | ✅ GitLens      |
 | 원격 서버     | ✅ Remote - SSH |
 | YAML 편집   | ✅ YAML         |
+
+## [2단계] WSL 또는 VSCode에서 Python + Docker 프로젝트 작성  
+📁 예시 프로젝트 구조  
+```text
+python-app/
+├── app.py
+├── Dockerfile
+└── requirements.txt
+```
+* app.py
+```python
+from datetime import datetime
+
+with open("log.txt", "a") as f:
+    f.write(f"✅ 프로그램 실행됨: {datetime.now()}\n")
+print("작업 완료")
+```
+* requirements.txt
+```text
+```
+* Dockerfile
+```docker
+FROM python:3.10-slim
+
+WORKDIR /app
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python", "app.py"]
+```
+* 로컬에서 테스트
+```docker
+docker build -t python-test-app .
+docker run python-test-app
+cat log.txt
+```

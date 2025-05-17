@@ -10,3 +10,22 @@ wsl --install
 wsl --set-default-version 2
 ```
 
+## 위의 방법으로 안되면...
+* 수동으로 가상환경 활성화 :
+```powershell
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+* 재부팅
+```powershell
+shutdown /r /t 0
+```
+* Ubuntu 배포판 설치
+```powershell
+wsl --install -d Ubuntu
+```
+
+## 추가로 확인할 BIOS 설정 (필요시)
+* 제조사 로고 화면에서 F2, Del, 또는 Esc 눌러 BIOS 진입
+* Virtualization 또는 Intel VT-x, AMD-V 같은 설정을 Enabled로 변경
+* 

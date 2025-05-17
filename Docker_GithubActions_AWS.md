@@ -218,6 +218,7 @@ jobs:
 ```
 📌 GitHub Secrets 설정  
 * GitHub 저장소 > Settings > Secrets and variables > Actions
+
 | 이름            | 값                                     |
 | ------------- | ------------------------------------- |
 | `EC2_HOST`    | EC2 퍼블릭 IP                            |

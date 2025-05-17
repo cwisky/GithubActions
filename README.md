@@ -147,7 +147,7 @@ jobs:
 
 ## 각 가상환경에는 어떤 도구가 설치되어 있나요?
 * GitHub는 각 Runner에 언어 런타임과 툴을 미리 설치해두고 있어
-* 바로 Python, Node.js, Java, Docker, .NET, Go, Ruby 등을 사용할 수 있습니다.
+* 바로 Python, Node.js, Java, Docker, .NET, Go, Ruby 등을 사용할 수 있음  
 ✅ Node.js, npm  
 ✅ Python (여러 버전 선택 가능)  
 ✅ Java (OpenJDK 8~21)  

@@ -28,4 +28,8 @@ wsl --install -d Ubuntu
 ## 추가로 확인할 BIOS 설정 (필요시)
 * 제조사 로고 화면에서 F2, Del, 또는 Esc 눌러 BIOS 진입
 * Virtualization 또는 Intel VT-x, AMD-V 같은 설정을 Enabled로 변경
+
+## Ubuntu 수동 설치 (WSL Store 우회)
+* 만약 wsl --install이 계속 실패한다면,
+* Microsoft Store 대신 수동으로 Ubuntu 패키지를 설치
 * 

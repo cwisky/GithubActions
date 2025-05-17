@@ -138,4 +138,17 @@ git add .
 git commit -m "Initial commit"
 git push -u origin main
 ```
+* git init
+  + Initialized empty Git repository in C:/python_code_prj/.git/
+  + 
 
+## 처음 push 할 때 표시되는 인증창 처리(GitHub Sign in)
+* git push -u origin main 처음 명령에 아래의 로그인 창이 표시됨
+* Browser/Device 선택 vs Token
+* [Sign in with your browser]클릭 vs [Sign in with a code]
+* Username or email address :
+* Password :
+* [Sign in]
+* Two factor Authetication Send Message
+* 폰에 받은 인증 코드를 브라우저에 입력
+* Authentication Succeeded

@@ -1,5 +1,5 @@
 # Github Actions
-* GitHub Actions는 GitHub 저장소에 연결된 자동화 시스템이며,
+* GitHub Actions는 GitHub 저장소에 업로드된 코드에 연결된 자동화 시스템이며,
 * 사용자가 정의한 .yml 파일에 따라 코드의 변경을 감지하고 자동으로 작업을 수행하는 플랫폼.
 * 그 핵심은 워크플로우 → 이벤트 → 작업 → 단계 구조이며, 모든 설정은 GitHub UI의 Actions 탭과 .yml 파일로 연결되어 있다.
   
@@ -70,3 +70,15 @@ jobs:
 |2단계|	.github/workflows/파일.yml 하나가 하나의 워크플로우|
 |3단계|	on, jobs, steps, run, uses 같은 키워드 의미|
 |4단계|	실제로 간단한 echo 워크플로우를 만들어보기|
+
+## YML안에서 workflow를 사용하여 할 수 있는 테스트 유형
+* 단위 테스트 (Unit Tests)
+  + 코드의 가장 작은 단위(함수, 메서드 등)를 테스트
+|예시 언어|	테스트 도구|
+|---------|------------|
+|Python|	pytest, unittest|
+|JavaScript|	Jest, Mocha|
+|Java|	JUnit, TestNG|
+|C#|	xUnit, NUnit|
+|Go|	go test|
+

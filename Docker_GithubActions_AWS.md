@@ -152,3 +152,5 @@ git push -u origin main
 * Two factor Authetication Send Message
 * 폰에 받은 인증 코드를 브라우저에 입력
 * Authentication Succeeded
+* You may now close this tab and return to the application.
+* 

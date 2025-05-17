@@ -70,3 +70,15 @@ Status: Downloaded newer image for hello-world:latest
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ```
+
+## MS Code와 WSL 통합
+* MS Code의 콘솔에서 Docker 명령어를 수행할 수 있게 함
+* wsl extentension 설치(아래의 목록 참조)
+| 목적        | 확장             |
+| --------- | -------------- |
+| WSL 통합    | ✅ Remote - WSL |
+| Python 개발 | ✅ Python       |
+| Docker 연동 | ✅ Docker       |
+| Git 추적    | ✅ GitLens      |
+| 원격 서버     | ✅ Remote - SSH |
+| YAML 편집   | ✅ YAML         |

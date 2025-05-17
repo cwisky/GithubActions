@@ -115,7 +115,24 @@ CMD ["python", "app.py"]
 ```
 * 로컬에서 테스트
 ```docker
-docker build -t python-test-app .
-docker run python-test-app
-cat log.txt
+docker build -t python-test-app .  # 현재 디렉토리에 있는 Makefile를 사용하여 이미지 생성
+docker images   # image 생성 확인
+
+# 1. 컨테이너를 실행하면서 컨테이너 이름 지정
+docker run --name mylogtest python-test-app
+
+# 2. 컨테이너에서 호스트로 파일 복사
+docker cp mylogtest:/app/log.txt ./log.txt   # mylogtest컨테이너의 app/log.txt 파일을 현재 디렉토리의 log.txt에 복사
+
+cat log.txt    # 현재 디렉토리에 복사된 log.txt 파일 내용 표시
 ```
+
+## [3단계] GitHub에 프로젝트 업로드
+```docker
+git init
+git remote add origin https://github.com/cwisky/GithubActions.git
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+```
+

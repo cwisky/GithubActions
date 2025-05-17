@@ -59,3 +59,10 @@ jobs:
 |PR 만들었을 때 리뷰 알림|	on: pull_request + 슬랙 연동|
 |코드 변경 시 서버에 배포|	on: push + SSH 배포 스크립트 실행|
 
+## GitHub Actions를 학습하기 위한 관문 요약
+|학습| 순서|	내용|
+|----|---------|----------|
+|1단계|	"Actions" 탭은 어디 있고, 무엇을 보여주는가?|
+|2단계|	.github/workflows/파일.yml 하나가 하나의 워크플로우|
+|3단계|	on, jobs, steps, run, uses 같은 키워드 의미|
+|4단계|	실제로 간단한 echo 워크플로우를 만들어보기|

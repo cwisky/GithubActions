@@ -38,5 +38,8 @@ wsl --install -d Ubuntu
 * wsl 기반으로 리눅스가 실행되는지 확인 > 창 닫기
 
 ## Docker Desktop 설치
+* https://www.docker.com/products/docker-desktop/
+* 설치 중 “WSL2 기반 백엔드” 옵션 선택 필수
+* 설치 후 Docker Desktop 실행(Docker 명령을 사용할 때는 항상 실행된 상태여야 함)
 * 
 

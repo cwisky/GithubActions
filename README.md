@@ -3,7 +3,7 @@
 * GitHub Actions는 GitHub 저장소 안에서 코드를 자동으로 빌드, 테스트, 배포할 수 있도록 만들어진 자동화(Automation) 시스템.
 * 코드 변경(push, PR, schedule)을 감지하여
 * 정의된 **워크플로우(workflow)**에 따라
-* CI/CD 파이프라인을 실행함
+* CI/CD 파이프라인을 실행함  
 👉 쉽게 말해, "GitHub 안에서 내가 설정한 자동화 명령서(yml)를 따라 알아서 작업을 해주는 비서".
 
 ## GitHub 웹 UI에서의 메뉴 위치

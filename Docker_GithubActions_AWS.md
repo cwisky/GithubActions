@@ -178,3 +178,58 @@ newgrp docker
 docker run hello-world
 ```
 
+## [5단계] GitHub Actions 워크플로우 설정  
+📁 .github/workflows/deploy.yml  
+```yml
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Copy files to EC2 via SCP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "."
+          target: "~/python-app"
+
+      - name: Run Docker on EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/python-app
+            docker build -t python-test-app .
+            docker run --rm python-test-app
+            cat log.txt
+```
+📌 GitHub Secrets 설정  
+* GitHub 저장소 > Settings > Secrets and variables > Actions
+| 이름            | 값                                     |
+| ------------- | ------------------------------------- |
+| `EC2_HOST`    | EC2 퍼블릭 IP                            |
+| `EC2_SSH_KEY` | EC2에 등록된 개인키 (ex: `~/.ssh/id_rsa` 내용) |
+
+## [6단계] 테스트 및 확인  
+▶️ 코드 푸시  
+```bash
+git add .
+git commit -m "배포 테스트"
+git push
+```
+▶️ GitHub → Actions → 워크플로우 실행 확인  
+* 로그에 다음이 나오면 성공:  ✅ 프로그램 실행됨: 2025-05-17 08:10:00
+

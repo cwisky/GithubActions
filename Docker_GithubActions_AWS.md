@@ -71,8 +71,8 @@ Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ```
 
-## MS Code와 WSL 통합
-* MS Code의 콘솔에서 Docker 명령어를 수행할 수 있게 함
+## VS Code와 WSL 통합
+* VS Code의 콘솔에서 Docker 명령어를 수행할 수 있게 함
 * wsl extentension 설치(아래의 목록 참조)
 
 | 목적        | 확장             |

@@ -57,4 +57,16 @@ wsl --install -d Ubuntu
 → 여기서 Ubuntu 옆에 있는 스위치(✔️) 를 켜면 통합 활성화됨
 * 설정 저장 후 Docker Desktop 재시작 권장
 
-## 
+## CMD에서 Docker 명령어 실행
+* docker --version
+* docker run hello-world
+```cmd
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+e6590344b1a5: Pull complete
+Digest: sha256:dd01f97f252193ae3210da231b1dca0cffab4aadb3566692d6730bf93f123a48
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+```

@@ -217,7 +217,7 @@ jobs:
             cat log.txt
 ```
 📌 GitHub Secrets 설정  
-* GitHub 저장소 > Settings > Secrets and variables > Actions
+* GitHub 저장소 > Settings > Secrets and variables > Actions > New Repository secret
 
 | 이름            | 값                                     |
 | ------------- | ------------------------------------- |
@@ -231,6 +231,6 @@ git add .
 git commit -m "배포 테스트"
 git push
 ```
-▶️ GitHub → Actions → 워크플로우 실행 확인  
+▶️ GitHub → Actions → 워크플로우 > yml 파일명(deploy) > 실행 확인  
 * 로그에 다음이 나오면 성공:  ✅ 프로그램 실행됨: 2025-05-17 08:10:00
 

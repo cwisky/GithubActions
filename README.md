@@ -123,3 +123,24 @@ jobs:
 |정적 분석|	문법/코딩 스타일 검사|	flake8, eslint|
 |보안 테스트|	취약점 분석|	bandit, npm audit, trivy|
 |성능 테스트|	부하 및 속도 측정|	locust, k6, JMeter|
+
+## 테스트 단계는 Github 가상 러너에서 실행됨
+* pytest는 목적지 시스템에 배포되기 전에, GitHub Actions가 제공하는 **테스트 환경(가상머신)**에서 실행.
+* 테스트가 통과해야만 배포가 진행되는 것이 일반적인 CI/CD 파이프라인의 흐름
+* pytest는 "목적지 시스템(운영 서버 등)에 배포되기 전에" 실행되는 것이 일반적.
+* 즉, 코드가 GitHub에 push되는 순간, GitHub Actions 워크플로우가 트리거되어,
+* 로컬과 유사한 가상 환경(GitHub-hosted runner) 에서 자동으로 pytest를 실행
+* "CI (Continuous Integration)" 단계이며, 목적지 시스템(운영 서버, EC2, Docker 컨테이너 등)에 배포되기 전에 코드의 안정성을 검증하는 목적
+
+## 기본 제공되는 GitHub Hosted Runners
+|환경 이름 (runs-on)	|운영체제	|설명|
+|---------------------|---------|----|
+|ubuntu-latest|	Ubuntu 22.04 (현재 기준)	|가장 빠르고 인기 많은 Linux 환경|
+|ubuntu-22.04|	Ubuntu 22.04	|명시적 버전|
+|ubuntu-20.04|	Ubuntu 20.04	|구버전 호환 목적|
+|windows-latest|	Windows Server 2022	|Windows용 빌드, 테스트 가능|
+|windows-2022|	Windows Server 2022	|명시적 버전|
+|macos-latest|	macOS 14 Sonoma	Mac |기반 앱/빌드에 필요|
+|macos-14|	macOS 14 Sonoma	|명시적 버전|
+|macos-13|	macOS 13 |Ventura	|
+|macos-12|	macOS 12 |Monterey|

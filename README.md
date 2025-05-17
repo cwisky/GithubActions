@@ -71,7 +71,7 @@ jobs:
 |3단계|	on, jobs, steps, run, uses 같은 키워드 의미|
 |4단계|	실제로 간단한 echo 워크플로우를 만들어보기|
 
-## YML안에서 workflow를 사용하여 할 수 있는 테스트 유형
+## YML안에서 workflow를 사용하여 할 수 있는 테스트 유형(단위테스트, 통합테스트 등)
 * 단위 테스트 (Unit Tests)
   + 코드의 가장 작은 단위(함수, 메서드 등)를 테스트
 
@@ -114,3 +114,12 @@ jobs:
         run: bandit -r my_project/
 ```
 
+## 테스트 유형 요약표
+|유형|	목적|	예시 도구|
+|----|------|----------|
+|단위 테스트|	함수/클래스 단위 테스트|	pytest, Jest|
+|통합 테스트|	모듈 간 상호작용 테스트|	Postman, Jest, JUnit|
+|E2E 테스트|	사용자 흐름 전반 검증|	Cypress, Selenium, Playwright|
+|정적 분석|	문법/코딩 스타일 검사|	flake8, eslint|
+|보안 테스트|	취약점 분석|	bandit, npm audit, trivy|
+|성능 테스트|	부하 및 속도 측정|	locust, k6, JMeter|

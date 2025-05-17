@@ -46,7 +46,7 @@ jobs:
 
 ## YML 핵심 구성요소 설명
 
-|용어	|설명	|예시|
+|용어	|설명	|예시| 
 |-----|-----|-----|
 |Workflow|	.github/workflows/*.yml 파일로 저장	|ci.yml, deploy.yml 등|
 |Event|	워크플로우를 트리거하는 조건	|push, pull_request, schedule, workflow_dispatch 등|
@@ -74,7 +74,8 @@ jobs:
 ## YML안에서 workflow를 사용하여 할 수 있는 테스트 유형
 * 단위 테스트 (Unit Tests)
   + 코드의 가장 작은 단위(함수, 메서드 등)를 테스트
-|예시 언어|	테스트 도구|
+
+|예시 언어|	테스트 도구|  
 |---------|------------|
 |Python|	pytest, unittest|
 |JavaScript|	Jest, Mocha|

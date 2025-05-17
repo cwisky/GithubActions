@@ -82,4 +82,35 @@ jobs:
 |Java|	JUnit, TestNG|
 |C#|	xUnit, NUnit|
 |Go|	go test|
+* 파이썬 단위 테스트의 예
+```yml
+run: |
+  pip install -r requirements.txt
+  pytest
+```
+## 테스트 유형별 GitHub Actions 구조 예시
+```yml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Python 설치
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 의존성 설치
+        run: pip install -r requirements.txt
+
+      - name: 단위 테스트
+        run: pytest
+
+      - name: 코드 스타일 검사
+        run: flake8 .
+
+      - name: 보안 검사
+        run: bandit -r my_project/
+```
 

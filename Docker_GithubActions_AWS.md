@@ -40,6 +40,7 @@ wsl --install -d Ubuntu
 
 ## Docker Desktop 설치
 * https://www.docker.com/products/docker-desktop/
+* 관리자 권한으로 설치
 * 설치 중 “WSL2 기반 백엔드” 옵션 선택 필수
 * 설치 후 Docker Desktop 실행(Docker 명령을 사용할 때는 항상 실행된 상태여야 함)
 * 

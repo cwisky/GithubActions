@@ -33,4 +33,10 @@ wsl --install -d Ubuntu
 * 만약 wsl --install이 계속 실패한다면,
 * Microsoft Store 대신 수동으로 Ubuntu 패키지를 설치
 * https://aka.ms/wslubuntu2204
+* C:\\Windows\\System32\\> Add-AppxPackage .\Ubuntu2204-221101.AppxBundle
+* wsl -d Ubuntu
+* wsl 기반으로 리눅스가 실행되는지 확인 > 창 닫기
+
+## Docker Desktop 설치
 * 
+

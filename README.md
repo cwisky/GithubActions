@@ -50,3 +50,12 @@ jobs:
 |Step|	단일 명령이나 Action 수행	|run: echo Hello, uses: actions/checkout@v3|
 |Action|	재사용 가능한 단위 작업	|actions/checkout, appleboy/ssh-action|
 |Runner|	실제로 코드를 실행하는 GitHub 제공 가상머신	|ubuntu-latest, windows-latest 등|
+
+## 내가 GitHub Actions로 하고 싶은 일
+|하고 싶은 일	|설정 방법|
+|-------------|----------|
+|push 할 때마다 자동 테스트|	on: push + npm test 실행|
+|하루에 한 번 자동 빌드|	on: schedule + cron 설정|
+|PR 만들었을 때 리뷰 알림|	on: pull_request + 슬랙 연동|
+|코드 변경 시 서버에 배포|	on: push + SSH 배포 스크립트 실행|
+

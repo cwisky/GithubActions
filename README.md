@@ -23,3 +23,29 @@
   + Event (이벤트)	언제 실행할지 정함 (예: push, PR, schedule 등)
   + Job (작업)	워크플로우 내에서 병렬/순차적으로 실행되는 작업 단위
   + Step (단계)	각 Job 안에서 순서대로 실행되는 명령어나 Action
+
+## yml에 정의하는 workflow의 예
+```yml
+# Workflow
+on: push             # Event
+
+jobs:
+  build:             # Job
+    runs-on: ubuntu-latest
+    steps:           # Step 목록
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run tests
+        run: npm test
+```
+
+## YML 핵심 구성요소 설명
+
+|용어	|설명	|예시|
+|Workflow|	.github/workflows/*.yml 파일로 저장	|ci.yml, deploy.yml 등|
+|Event|	워크플로우를 트리거하는 조건	|push, pull_request, schedule, workflow_dispatch 등|
+|Job|	하나 이상의 Step으로 구성된 실행 단위	|build, deploy|
+|Step|	단일 명령이나 Action 수행	|run: echo Hello, uses: actions/checkout@v3|
+|Action|	재사용 가능한 단위 작업	|actions/checkout, appleboy/ssh-action|
+|Runner|	실제로 코드를 실행하는 GitHub 제공 가상머신	|ubuntu-latest, windows-latest 등|

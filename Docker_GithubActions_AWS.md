@@ -122,7 +122,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["python", "app.py"]
 ```
-* 로컬에서 테스트
+* 로컬에서 도커 이미지 생성 및 컨테이너에서 이미지 실행 테스트
 ```docker
 docker build -t python-test-app .  # 현재 디렉토리에 있는 Makefile를 사용하여 이미지 생성
 docker images   # image 생성 확인
@@ -136,7 +136,7 @@ docker cp mylogtest:/app/log.txt ./log.txt   # mylogtest컨테이너의 app/log.
 cat log.txt    # 현재 디렉토리에 복사된 log.txt 파일 내용 표시
 ```
 
-## [3단계] GitHub에 프로젝트 업로드
+## [3단계] GitHub 리파지토리에 프로젝트 업로드
 ```docker
 git init
 git remote add origin https://github.com/cwisky/GithubActions.git

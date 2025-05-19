@@ -47,8 +47,14 @@ wsl --install -d Ubuntu
 * 설치 중 “WSL2 기반 백엔드” 옵션 선택 필수
 * 설치 후 Docker Desktop 실행(Docker 명령을 사용할 때는 항상 실행된 상태여야 함)
 
+## Docker Desktop - Unexpected WSL error
+* Window 검색창에서 "Windows 기능 켜기 또는 끄기" 입력
+* Hyper -V 체크
+* Linux용 Windows 하위 시스템 체크
+* Windows 하이퍼바이저 플랫폼
+
 ## Docker Desktop 처음 실행
-* Accept
+* Docker Subscription Service Agreement : Accept
 * WSL 자동 실행창 표시,닫아도 됨
 * work/Person 선택 > Google 로그인
 

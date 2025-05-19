@@ -6,10 +6,10 @@
 
 ## [1단계] Windows에 WSL + Docker 환경 구축  
 📌 필요한 도구 설치  
-* WSL2 설치 (Ubuntu 권장)
+* WSL2 설치 (Ubuntu 권장) https://learn.microsoft.com/ko-kr/windows/wsl/install
 * 공식 가이드 또는 PowerShell에서:
 ```powershell
-wsl --install
+wsl --install  # WSL2가 기본으로 설치되며 Ubuntu가 디폴트임
 wsl --set-default-version 2
 ```
 

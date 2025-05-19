@@ -53,6 +53,9 @@ wsl --install -d Ubuntu
 * Linux용 Windows 하위 시스템 체크
 * Windows 하이퍼바이저 플랫폼
 
+## 오류 해결 참조
+* https://velog.io/@rondido/window-docker-%EC%8B%A4%ED%96%89-%EA%B4%80%EB%A0%A8-Error-%ED%95%B4%EA%B2%B0
+
 ## Docker Desktop 처음 실행
 * Docker Subscription Service Agreement : Accept
 * WSL 자동 실행창 표시,닫아도 됨

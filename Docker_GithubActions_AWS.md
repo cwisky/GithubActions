@@ -269,8 +269,9 @@ jobs:
 ```docker
 git init
 git remote add origin https://github.com/cwisky/MyCode.git   # 이미 등록되었다면 오류발생
-git add .    # 다수개의 파일 선택시, git add 파일1.py 파일2.html 파일3.txt
-git commit -m "Initial commit"
+#git add .    # 다수개의 파일 선택시, git add 파일1.py 파일2.html 파일3.txt
+git add app.py Dockerfile requirements.txt
+git commit -m "Commit to test the build"
 git push -u origin main
 ```
 

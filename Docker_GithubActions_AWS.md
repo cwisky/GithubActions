@@ -19,6 +19,8 @@ PS C:\WINDOWS\system32> wsl --list --verbose
   NAME      STATE           VERSION
 * Ubuntu    Stopped         2
 ```
+* WSL 삭제 : wsl --unregister Ubuntu
+
 
 ## 위의 방법으로 안되면...
 * 수동으로 가상환경 활성화 :

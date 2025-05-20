@@ -134,6 +134,10 @@ This message shows that your installation appears to be working correctly.
 | 원격 서버     | ✅ Remote - SSH |
 | YAML 편집   | ✅ YAML         |
 
+## Github에서 private 코드 저장소 생성
+* GithubActions 임의의 저장소 이름 지정
+* README.md 파일 생성도 임의로 결정
+
 ## github.com 리파지토리에서 로컬 리파지토리에 프로젝트 복제하기
 * git init
 * git clone https://github.com/cwisky/GithubActions.git
@@ -141,6 +145,11 @@ This message shows that your installation appears to be working correctly.
 * 복제된 리파지토리 안에서 아래의 파일들을 새로 생성
 
 ## [2단계] WSL 또는 VSCode에서 Python + Docker 프로젝트 작성  
+* 가상환경 생성
+* 필요한 모듈 설치
+* 이미지 생성에 필요한 requirements.txt 파일 생성
+* pip freeze > requirements.txt
+
 📁 예시 프로젝트 구조  
 ```text
 python-app/
@@ -165,7 +174,7 @@ FROM python:3.10-slim
 
 WORKDIR /app
 COPY . .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt   # --no-cache-dir:설치 후 바로 삭제함, -r : requirement의 약자
 
 CMD ["python", "app.py"]
 ```

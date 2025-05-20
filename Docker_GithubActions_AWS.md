@@ -174,6 +174,8 @@ FROM python:3.10-slim
 
 WORKDIR /app
 COPY . .
+#COPY app.py .
+#COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt   # --no-cache-dir:설치 후 바로 삭제함, -r : requirement의 약자
 
 CMD ["python", "app.py"]

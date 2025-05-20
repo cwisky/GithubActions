@@ -59,6 +59,7 @@ wsl --install -d Ubuntu
 * Hyper -V 체크
 * Linux용 Windows 하위 시스템 체크
 * Windows 하이퍼바이저 플랫폼
+* BIOS 셋업 : 부팅시 ESC, F2, F10, DELETE 키를 눌러서 BIOS셋업 > AMD-V, Virtualization 등의 속성을 찾아서 Enabled 설정
 
 ## 오류 해결 참조
 * https://velog.io/@rondido/window-docker-%EC%8B%A4%ED%96%89-%EA%B4%80%EB%A0%A8-Error-%ED%95%B4%EA%B2%B0

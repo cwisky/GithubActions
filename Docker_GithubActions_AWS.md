@@ -98,6 +98,15 @@ wsl --install -d Ubuntu
 * WSL의 Ubuntu에서 docker 이미지를 개발할 때 파이썬 프로젝트를 위해 Window에 설치된 MS Code 연동 가능
 * WSL에서 만든 Docker 이미지/컨테이너는 Windows에서도 동일하게 docker 명령어로 접근 가능
 
+## 도커 Image, Container
+* Image : Dockerfile로 만든 실행 환경(코드, 라이브러리, 설정 등)을 하나의 패키지처럼 만든 것
+* 도커 이미지 배포 : 이미지를 Docker Hub 또는 GitHub Container Registry(GHCR)에 올리는 것
+* Container : 이미지를 실행해서 실제로 작동 중인 인스턴스(컨테이너), docker run으로 컨테이너를 생성
+* 도커 컨테이너 배포 : 컨테이너를 다른 시스템에서 작동시키는 것
+* 비유로 설명하면?
+  + 이미지 배포 = “앱 설치파일(.apk, .exe)을 다른 사람에게 배포하는 것”
+  + 컨테이너 배포 = “그 앱을 실제로 핸드폰이나 서버에 설치하고 실행시켜서 서비스하는 것”
+
 ## CMD에서 Docker 명령어 실행
 * docker --version
 * docker run hello-world

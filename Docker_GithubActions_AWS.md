@@ -236,6 +236,28 @@ docker run hello-world
 ```
 
 ## [5단계] GitHub Actions 워크플로우 설정  
+* .github/workflows/log_only.yml
+```yml
+name: Log only when pushed
+
+on:
+  push:
+    branches:
+      - main  # 또는 'master' 등 사용 중인 브랜치 이름
+
+jobs:
+  log-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show simple log
+        run: |
+          echo "✅ GitHub Actions workflow triggered!"
+          echo "🕒 Timestamp: $(date)"
+          echo "📦 Repository: ${{ github.repository }}"
+          echo "👤 Triggered by: ${{ github.actor }}"
+```
+
 📁 .github/workflows/deploy.yml  
 ```yml
 name: Deploy to EC2

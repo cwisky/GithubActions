@@ -179,7 +179,7 @@ jobs:
 * pip freeze > requirements.txt
 * app.py 생성, 임의의 코드 추가 및 저장
 
-## Docker와 무관하게 로컬 리파지토리의 app.py 파일을 업로드한다
+## Docker와 무관하게 로컬 리파지토리의 app.py 파일을 업로드하여 github actions 반응 테스트
 * git add app.py
 * git status
 * git commit -m "github actions 워크플로우 작동 테스트"
@@ -233,12 +233,39 @@ docker cp mylogtest:/app/log.txt ./log.txt   # mylogtest컨테이너의 app/log.
 cat log.txt    # 현재 디렉토리에 복사된 log.txt 파일 내용 표시
 ```
 
-## [3단계] GitHub 리파지토리에 프로젝트 업로드
+## [3단계] GitHub 리파지토리에 프로젝트 업로드 및 github actions에 의해 도커 이미지 생성 테스트
 * 로컬 도커에서 이미지로 생성된 프로그램을 실행했을 때 문제가 없다면 코드를 push하여 github actions가 이미지를 생성(빌드)하도록 한다
 * .github/workflows/image_build.yml
 ```yml
+name: Build and Push Docker Image
 
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 push될 때 실행
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and Push Docker Image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository }}:latest
+          docker build -t $IMAGE_NAME .
+          docker push $IMAGE_NAME
 ```
+* 아래와 같이 로컬 리파지토리에서 push 하여 위의 워크플로우에서 의해 도커 이미지가 생성되는지 확인
 ```docker
 git init
 git remote add origin https://github.com/cwisky/MyCode.git   # 이미 등록되었다면 오류발생

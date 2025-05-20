@@ -12,6 +12,13 @@
 wsl --install  # WSL2가 기본으로 설치되며 Ubuntu가 디폴트임
 wsl --set-default-version 2
 ```
+* 설치 후에 시스템을 다시 부팅하면 디폴트로 Ubuntu 가 설치된다
+* WSL이 실행되고 있는지 확인
+```powershell
+PS C:\WINDOWS\system32> wsl --list --verbose
+  NAME      STATE           VERSION
+* Ubuntu    Stopped         2
+```
 
 ## 위의 방법으로 안되면...
 * 수동으로 가상환경 활성화 :

@@ -68,6 +68,9 @@ wsl --install -d Ubuntu
 * Docker Subscription Service Agreement : Accept
 * WSL 자동 실행창 표시,닫아도 됨
 * work/Person 선택 > Google 로그인
+* Survey...
+* docker desktop 초기화면 표시됨
+* docker 명령어 사용시에는 항상 Docker Desktop 실행되어 있어야 함
 
 ## WSL, Docker Desktop 통합
 * WSL 기반 개발환경과 Docker가 완벽하게 통합되어 VSCode + WSL 개발에서 매우 중요
@@ -76,6 +79,14 @@ wsl --install -d Ubuntu
 * 설치된 WSL 배포판 목록(Ubuntu 등)이 표시됨, 디폴트로 선택되어 있음
 → 여기서 Ubuntu 옆에 있는 스위치(✔️) 를 켜면 통합 활성화됨
 * 설정 저장 후 Docker Desktop 재시작 권장
+
+## WSL에 디폴트 내장된 Ubuntu 에서 Docker 명령어 테스트
+* 위의 설정으로 WSL에 포함된 Ubuntu에서도 Docker 명령어를 실행할 수 있다
+* 윈도우 검색창에 "Ubuntu" 입력
+* 이용자 아이디 : dmin<엔터>
+* New password : mbcaca
+* Retype new password : mbcaca
+* # docker --version
 
 ## CMD에서 Docker 명령어 실행
 * docker --version

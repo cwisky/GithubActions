@@ -106,12 +106,11 @@ wsl --install -d Ubuntu
 * Image : Dockerfile로 만든 실행 환경(코드, 라이브러리, 설정 등)을 하나의 패키지처럼 만든 것
 * 도커 이미지 배포 : 이미지를 Docker Hub 또는 GitHub Container Registry(GHCR)에 올리는 것
 * Container : 이미지를 실행해서 실제로 작동 중인 인스턴스(컨테이너), docker run으로 컨테이너를 생성
-* 도커 컨테이너 배포 : 컨테이너를 다른 시스템에서 작동시키는 것
 * 비유로 설명하면?
   + 이미지 배포 = “앱 설치파일(.apk, .exe)을 다른 사람에게 배포하는 것”
   + 컨테이너 배포 = “그 앱을 실제로 핸드폰이나 서버에 설치하고 실행시켜서 서비스하는 것”
 
-## CMD에서 Docker 명령어 실행
+## 도커 설치 후, CMD에서 최초로 Docker 명령어 실행
 * docker --version
 * docker run hello-world
 ```cmd
@@ -139,7 +138,7 @@ This message shows that your installation appears to be working correctly.
 | YAML 편집   | ✅ YAML         |
 
 ## Github에서 private 코드 저장소 생성
-* MyCode 임의의 저장소 이름 지정
+* MyCode (임의의 저장소 이름) 지정
 * README.md 파일 생성도 임의로 결정
 * MyCode/.github/workflows/log_only.yml 파일 생성(push origin main을 감지하고 로그를 출력한다)
 ```yml
@@ -175,15 +174,16 @@ jobs:
 
 ## [2단계] WSL 또는 VSCode에서 Python + Docker 프로젝트 작성  
 * 필요한 모듈 설치
-* 이미지 생성에 필요한 requirements.txt 파일 생성
+* 도커 이미지에 포함될 모듈 목록인 requirements.txt 파일 생성
 * pip freeze > requirements.txt
 * app.py 생성, 임의의 코드 추가 및 저장
 
 ## Docker와 무관하게 로컬 리파지토리의 app.py 파일을 업로드하여 github actions 반응 테스트
+* 아래처럼 push 하면 github actions의 워크플로우가 실행되고 그 결과 yml에 정의된 로그가 확인되어야 함
 * git add app.py
 * git status
 * git commit -m "github actions 워크플로우 작동 테스트"
-* git push -u origin main   # 로그인을 요구하면 따른다
+* git push -u origin main   # 이때 로그인을 요구하면 따른다
 
 ## github actions 에서 위의 push명령에 반응하여 워크플로우가 실행되었는지 확인
 * github에서 MyCode 리파지토리 Actions 누르고 log_only.yml에 정의된 로그가 기록되었는지 확인

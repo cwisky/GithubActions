@@ -139,24 +139,59 @@ This message shows that your installation appears to be working correctly.
 | YAML 편집   | ✅ YAML         |
 
 ## Github에서 private 코드 저장소 생성
-* GithubActions 임의의 저장소 이름 지정
+* MyCode 임의의 저장소 이름 지정
 * README.md 파일 생성도 임의로 결정
+* MyCode/.github/workflows/log_only.yml 파일 생성(push origin main을 감지하고 로그를 출력한다)
+```yml
+name: Log only when pushed
+
+on:
+  push:
+    branches:
+      - main  # 또는 'master' 등 사용 중인 브랜치 이름
+
+jobs:
+  log-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show simple log
+        run: |
+          echo "✅ GitHub Actions workflow triggered!"
+          echo "🕒 Timestamp: $(date)"
+          echo "📦 Repository: ${{ github.repository }}"
+          echo "👤 Triggered by: ${{ github.actor }}"
+```
 
 ## github.com 리파지토리에서 로컬 리파지토리에 프로젝트 복제하기
-* git init
-* git clone https://github.com/cwisky/GithubActions.git
-* cd GithubActions
+* C:/Users/Admin/docker_projects/ 안에서 파이썬 가상환경 생성 : python -m venv venv
+* venv 디렉토리 안에서, scripts\\activate : 가상환경 활성화
+* git config --global user.email "cwiskykim@gmail.com"
+* git config --global user.name "cwisky"
+* git init  # 로컬 리파지토리 초기화
+* git clone https://github.com/cwisky/MyCode.git
+* cd MyCode
 * 복제된 리파지토리 안에서 아래의 파일들을 새로 생성
 
 ## [2단계] WSL 또는 VSCode에서 Python + Docker 프로젝트 작성  
-* 가상환경 생성
 * 필요한 모듈 설치
 * 이미지 생성에 필요한 requirements.txt 파일 생성
 * pip freeze > requirements.txt
+* app.py 생성, 임의의 코드 추가 및 저장
 
+## Docker와 무관하게 로컬 리파지토리의 app.py 파일을 업로드한다
+* git add app.py
+* git status
+* git commit -m "github actions 워크플로우 작동 테스트"
+* git push -u origin main   # 로그인을 요구하면 따른다
+
+## github actions 에서 위의 push명령에 반응하여 워크플로우가 실행되었는지 확인
+* github에서 MyCode 리파지토리 Actions 누르고 log_only.yml에 정의된 로그가 기록되었는지 확인
+
+## 작성된 프로그램을 도커 이미지로 생성하여 로컬 도커에서 실행 테스트
 📁 예시 프로젝트 구조  
 ```text
-python-app/
+MyCode/
 ├── app.py
 ├── Dockerfile
 └── requirements.txt
@@ -199,9 +234,14 @@ cat log.txt    # 현재 디렉토리에 복사된 log.txt 파일 내용 표시
 ```
 
 ## [3단계] GitHub 리파지토리에 프로젝트 업로드
+* 로컬 도커에서 이미지로 생성된 프로그램을 실행했을 때 문제가 없다면 코드를 push하여 github actions가 이미지를 생성(빌드)하도록 한다
+* .github/workflows/image_build.yml
+```yml
+
+```
 ```docker
 git init
-git remote add origin https://github.com/cwisky/GithubActions.git   # 이미 등록되었다면 오류발생
+git remote add origin https://github.com/cwisky/MyCode.git   # 이미 등록되었다면 오류발생
 git add .    # 다수개의 파일 선택시, git add 파일1.py 파일2.html 파일3.txt
 git commit -m "Initial commit"
 git push -u origin main

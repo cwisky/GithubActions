@@ -88,6 +88,13 @@ wsl --install -d Ubuntu
 * Retype new password : mbcaca
 * # docker --version
 
+## WSL에 포함된 Ubuntu의 활용
+* docker를 사용할 때는 거의 필요없음
+* Linux를 학습해야 할 때는 유용함
+* Linux에서 docker를 경험해야 하는 상황이라면 좋은 환경이됨
+* Linux에 docker 이미지를 배포할 때 동일한 환경을 제공함
+* Linux를 기반으로 개발해야 할 때도 유용함
+
 ## CMD에서 Docker 명령어 실행
 * docker --version
 * docker run hello-world

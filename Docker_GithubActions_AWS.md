@@ -197,8 +197,8 @@ cat log.txt    # 현재 디렉토리에 복사된 log.txt 파일 내용 표시
 ## [3단계] GitHub 리파지토리에 프로젝트 업로드
 ```docker
 git init
-git remote add origin https://github.com/cwisky/GithubActions.git
-git add .
+git remote add origin https://github.com/cwisky/GithubActions.git   # 이미 등록되었다면 오류발생
+git add .    # 다수개의 파일 선택시, git add 파일1.py 파일2.html 파일3.txt
 git commit -m "Initial commit"
 git push -u origin main
 ```

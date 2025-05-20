@@ -168,7 +168,7 @@ print("작업 완료")
 * requirements.txt
 ```text
 ```
-* Dockerfile
+* Dockerfile (실행할 코드, 모듈, 환경 및 실행 방법 정의)
 ```docker
 FROM python:3.10-slim
 

@@ -137,6 +137,25 @@ This message shows that your installation appears to be working correctly.
 | 원격 서버     | ✅ Remote - SSH |
 | YAML 편집   | ✅ YAML         |
 
+# 로컬 리파지토리에서 github의 코드 리파지토리(MyCode)에 push하고 actions확인하기
+* 로컬 push명령에 의해 github actions에 정의된 워크플로우가 실행되는지 확인하는 절차
+  1. MyCode 리파지토리 생성(보안상 private 설정)
+  2. MyCode/.github/workflows/log_only.yml 생성 : echo "????" 이용하여 로그를 남기는 내용
+  3. 로컬에서 임의의 디렉토리에 가상환경을 생성한다
+  4. 가상환경 디렉토리로 이동
+  5. 가상환경 활성화
+  6. 필요한 모듈 설치(예, pip install django )
+  7. git init : 현재 디렉토리를 로컬 리파지토리로 초기화
+  8. git clone [MyCode 리파지토리 주소]
+  9. cd MyCode
+  10. MyCode 안에 app.py 생성(현재 내용은 중요하지 않음)
+  11. 현재 가상환경에 설치된 모듈의 목록 추출 : pip freeze > requirements.txt
+  12. git add .     # 현재 2개의 파일 존재(app.py, requirements.txt)
+  13. git status
+  14. git commit -m "github actions 작동 테스트"
+  15. git push origin main
+  16. Github.com의 MyCode/Actions/에서 로그 확인 : log_only.yml 이 실행되었는지 확인
+
 ## Github에서 private 코드 저장소 생성
 * MyCode (임의의 저장소 이름) 지정
 * README.md 파일 생성도 임의로 결정

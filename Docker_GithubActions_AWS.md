@@ -55,6 +55,7 @@ wsl --install -d Ubuntu
 
 ## 오류 해결 참조
 * https://velog.io/@rondido/window-docker-%EC%8B%A4%ED%96%89-%EA%B4%80%EB%A0%A8-Error-%ED%95%B4%EA%B2%B0
+* bcdedit /set hypervisorlaunchtype auto
 
 ## Docker Desktop 처음 실행
 * Docker Subscription Service Agreement : Accept

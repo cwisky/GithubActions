@@ -86,7 +86,7 @@ wsl --install -d Ubuntu
 * 이용자 아이디 : dmin<엔터>
 * New password : mbcaca
 * Retype new password : mbcaca
-* # docker --version
+* docker --version
 
 ## WSL에 포함된 Ubuntu의 활용
 * docker를 사용할 때는 거의 필요없음(CMD, Powershell을 사용하면 충분함)
@@ -94,6 +94,9 @@ wsl --install -d Ubuntu
 * Linux에서 docker를 경험해야 하는 상황이라면 좋은 환경이됨
 * Linux에 docker 이미지를 배포할 때 동일한 환경을 제공함
 * Linux를 기반으로 개발해야 할 때도 유용함
+* WSL의 Ubuntu에서 docker 이미지 개발 및 git배포 가능
+* WSL의 Ubuntu에서 docker 이미지를 개발할 때 파이썬 프로젝트를 위해 Window에 설치된 MS Code 연동 가능
+* WSL에서 만든 Docker 이미지/컨테이너는 Windows에서도 동일하게 docker 명령어로 접근 가능
 
 ## CMD에서 Docker 명령어 실행
 * docker --version

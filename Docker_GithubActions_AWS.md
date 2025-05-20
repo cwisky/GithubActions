@@ -192,6 +192,7 @@ git push -u origin main
 * Authentication Succeeded
 * You may now close this tab and return to the application.
 * github.com 해당 리파지토리에 프로젝트가 로드되어 있는지 확인
+* 이 때 이용자의 아이디, 암호를 입력하여 인증을 통과하면 "윈도우 자격증명"에는 아이디와 github에서 발급한 인증토큰이 저장되어 이후의 git 명령에 자동으로 사용됨
 
 ## [4단계] AWS EC2 서버 준비
 * 설정요약

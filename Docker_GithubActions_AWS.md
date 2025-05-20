@@ -62,6 +62,7 @@ wsl --install -d Ubuntu
 
 ## 오류 해결 참조
 * https://velog.io/@rondido/window-docker-%EC%8B%A4%ED%96%89-%EA%B4%80%EB%A0%A8-Error-%ED%95%B4%EA%B2%B0
+* https://jih0.medium.com/amd-cpu-%EA%B0%80%EC%83%81%ED%99%94-%EB%B0%8F-windows-10-wsl-2-docker-desktop-%EC%84%A4%EC%B9%98-beb2b7a09397
 * bcdedit /set hypervisorlaunchtype auto
 
 ## Docker Desktop 처음 실행

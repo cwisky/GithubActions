@@ -13,7 +13,7 @@
 ## 2단계: VS Code에 WSL 확장(Extension) 설치
 * VS Code 실행
 * 왼쪽 사이드바 Extensions 클릭 (또는 Ctrl+Shift+X)
-* "Remote - WSL" 검색
+* "Remote - WSL" 검색  
 🔵 "Remote - WSL" by Microsoft 설치
 
 ## 

@@ -270,6 +270,10 @@ on:
     branches:
       - main  # main 브랜치에 push될 때 실행
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -303,7 +307,7 @@ git push -u origin main
 ```
 
 ## Github Actions에 의해 GHCR에 생성된 도커 이미지 확인
-* 해당 코드 리파지토리 선택 / 상단 메뉴 중 Packages 클릭
+* 해당 코드 리파지토리 선택 / 화면 오른쪽 컬럼에서 아래쪽 Packages 섹션 확인
 
 ## 처음 push 할 때 표시되는 인증창 처리(GitHub Sign in)
 * git push -u origin main 처음 명령에 아래의 로그인 창이 표시됨

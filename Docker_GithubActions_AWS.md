@@ -150,7 +150,7 @@ This message shows that your installation appears to be working correctly.
   9. cd mycode
   10. mycode 안에 app.py 생성(현재 내용은 중요하지 않음)
   11. 현재 가상환경에 설치된 모듈의 목록 추출 : pip freeze > requirements.txt
-  12. git add .     # 현재 2개의 파일 존재(app.py, requirements.txt)
+  12. git add .     # 현재 2개의 파일 존재(app.py, requirements.txt), 새로 추가되거나 변경된 파일만 스테이지에 올림
   13. git status
   14. git commit -m "github actions 작동 테스트"
   15. git push origin main

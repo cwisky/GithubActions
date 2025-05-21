@@ -208,7 +208,7 @@ jobs:
 * github에서 mycode 리파지토리 Actions 누르고 log_only.yml에 정의된 로그가 기록되었는지 확인
 
 
-# 로컬 리파지토리에서 push 명령으로 github actions의 워크플로우에 따라 도커 이미지가 생성되지 확인
+# 로컬 리파지토리에서 push 명령으로 github actions의 워크플로우에 따라 도커 이미지가 생성되는지 확인
 1. 로컬 리파지토리에서 도커 이미지를 생성하고 실행하여 문제가 없는 경우에 코드를 push하여 yml에 의해 도커 이미지가 생성되는지 확인
 2. 로컬 리파지토리에서 도커 이미지를 생성하려면 Dockerfile 이 필요함
 3. github actions에서도 도커 이미지를 생성하려면 Dockerfile이 필요하므로 git add 할 때 포함되어야 함
@@ -241,7 +241,7 @@ WORKDIR /app
 COPY . .
 #COPY app.py .
 #COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt   # --no-cache-dir:설치 후 바로 삭제함, -r : requirement의 약자
+RUN pip install --no-cache-dir -r requirements.txt   # --no-cache-dir:설치 후 바로 사용된 캐시 삭제함, -r : requirement의 약자
 
 CMD ["python", "app.py"]
 ```

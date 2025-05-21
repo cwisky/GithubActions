@@ -461,3 +461,13 @@ jobs:
           git commit -m "Update commit-log.txt [bot]" || echo "No changes to commit"
           git push
 ```
+## 위의 코드에서 사용된 서식 문자열 속의 변환 문자 해석  
+| 포맷 코드       | 의미                                |
+| ----------- | --------------------------------- |
+| `Author: `  | 문자열 (출력에 그대로 나타남)                 |
+| `%an`       | Author Name – 커밋 작성자의 이름          |
+| `%n`        | 줄바꿈 (new line)                    |
+| `Message: ` | 문자열 (커밋 메시지 앞에 붙이는 라벨)            |
+| `%s`        | Subject – 커밋 메시지 제목 (첫 줄)         |
+| `Commit: `  | 문자열 (커밋 해시 앞에 붙이는 라벨)             |
+| `%H`        | Commit Hash – 전체 40자리 SHA-1 커밋 ID |

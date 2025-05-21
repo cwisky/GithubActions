@@ -431,7 +431,7 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write   # write는 읽고 쓰기 포함
   packages: write
 
 jobs:

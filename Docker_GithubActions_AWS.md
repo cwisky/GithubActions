@@ -139,27 +139,27 @@ This message shows that your installation appears to be working correctly.
 
 # 로컬 리파지토리에서 github의 코드 리파지토리(MyCode)에 push하고 actions확인하기
 * 로컬 push명령에 의해 github actions에 정의된 워크플로우가 실행되는지 확인하는 절차
-  1. MyCode 리파지토리 생성(보안상 private 설정)
-  2. MyCode/.github/workflows/log_only.yml 생성 : echo "????" 이용하여 로그를 남기는 내용
+  1. mycode 리파지토리 생성(보안상 private 설정)
+  2. mycode/.github/workflows/log_only.yml 생성 : echo "????" 이용하여 로그를 남기는 내용
   3. 로컬에서 임의의 디렉토리에 가상환경을 생성한다
   4. 가상환경 디렉토리로 이동
   5. 가상환경 활성화
   6. 필요한 모듈 설치(예, pip install django )
   7. git init : 현재 디렉토리를 로컬 리파지토리로 초기화
-  8. git clone [MyCode 리파지토리 주소]
-  9. cd MyCode
-  10. MyCode 안에 app.py 생성(현재 내용은 중요하지 않음)
+  8. git clone [mycode 리파지토리 주소]
+  9. cd mycode
+  10. mycode 안에 app.py 생성(현재 내용은 중요하지 않음)
   11. 현재 가상환경에 설치된 모듈의 목록 추출 : pip freeze > requirements.txt
   12. git add .     # 현재 2개의 파일 존재(app.py, requirements.txt)
   13. git status
   14. git commit -m "github actions 작동 테스트"
   15. git push origin main
-  16. Github.com의 MyCode/Actions/에서 로그 확인 : log_only.yml 이 실행되었는지 확인
+  16. Github.com의 mycode/Actions/에서 로그 확인 : log_only.yml 이 실행되었는지 확인
 
 ## Github에서 private 코드 저장소 생성
-* MyCode (임의의 저장소 이름) 지정
+* mycode (임의의 저장소 이름) 지정
 * README.md 파일 생성도 임의로 결정
-* MyCode/.github/workflows/log_only.yml 파일 생성(push origin main을 감지하고 로그를 출력한다)
+* mycode/.github/workflows/log_only.yml 파일 생성(push origin main을 감지하고 로그를 출력한다)
 ```yml
 name: Log only when pushed
 
@@ -188,7 +188,7 @@ jobs:
 * git config --global user.name "cwisky"
 * git init  # 로컬 리파지토리 초기화
 * git clone https://github.com/cwisky/MyCode.git
-* cd MyCode
+* cd mycode
 * 복제된 리파지토리 안에서 아래의 파일들을 새로 생성
 
 ## [2단계] WSL 또는 VSCode에서 Python + Docker 프로젝트 작성  
@@ -205,7 +205,14 @@ jobs:
 * git push -u origin main   # 이때 로그인을 요구하면 따른다
 
 ## github actions 에서 위의 push명령에 반응하여 워크플로우가 실행되었는지 확인
-* github에서 MyCode 리파지토리 Actions 누르고 log_only.yml에 정의된 로그가 기록되었는지 확인
+* github에서 mycode 리파지토리 Actions 누르고 log_only.yml에 정의된 로그가 기록되었는지 확인
+
+
+# 로컬 리파지토리에서 push 명령으로 github actions의 워크플로우에 따라 도커 이미지가 생성되지 확인
+1. 로컬 리파지토리에서 도커 이미지를 생성하고 실행하여 문제가 없는 경우에 코드를 push하여 yml에 의해 도커 이미지가 생성되는지 확인
+2. 로컬 리파지토리에서 도커 이미지를 생성하려면 Dockerfile 이 필요함
+3. github actions에서도 도커 이미지를 생성하려면 Dockerfile이 필요하므로 git add 할 때 포함되어야 함
+4. github actions에서 도커 이미지를 생성할 수 있도록 워크플로우를 yml 에 정의해야 함
 
 ## 작성된 프로그램을 도커 이미지로 생성하여 로컬 도커에서 실행 테스트
 📁 예시 프로젝트 구조  
@@ -288,6 +295,7 @@ jobs:
 ```docker
 git init
 git remote add origin https://github.com/cwisky/MyCode.git   # 이미 등록되었다면 오류발생
+git remote -v   # 현재 설정된 remote origin의 주소를 확인
 #git add .    # 다수개의 파일 선택시, git add 파일1.py 파일2.html 파일3.txt
 git add app.py Dockerfile requirements.txt
 git commit -m "Commit to test the build"

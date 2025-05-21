@@ -421,3 +421,43 @@ git push
 ▶️ GitHub → Actions → 워크플로우 > yml 파일명(deploy) > 실행 확인  
 * 로그에 다음이 나오면 성공:  ✅ 프로그램 실행됨: 2025-05-17 08:10:00
 
+# 각 팀원의 push내역을 파일에 기록하고 리파지토리에 반영하는 yml 예
+```yml
+name: Log Commits
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  log-commit-info:
+    if: "!contains(github.event.head_commit.message, '[bot]')"  # 반복 방지 조건
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions@github.com"
+
+      - name: Extract commit info
+        run: |
+          echo "==== New Push ====" >> commit-log.txt
+          echo "Time: $(date '+%Y-%m-%d %H:%M:%S')" >> commit-log.txt
+          git log -1 --pretty=format:"Author: %an%nMessage: %s%nCommit: %H%n" >> commit-log.txt
+          echo "" >> commit-log.txt
+
+      - name: Commit and push log file
+        run: |
+          git add commit-log.txt
+          git commit -m "Update commit-log.txt [bot]" || echo "No changes to commit"
+          git push
+```

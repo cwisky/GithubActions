@@ -86,3 +86,20 @@ docker run -d -p 8000:8000 django-test-app
 * git init, .gitignore, git remote add
 * docker tag 및 docker push 명령으로 DockerHub 배포
 
+## 도커 이미지의 파일 시스템과 내부 구조를 확인
+* 이미지로부터 컨테이너 생성 후 bash로 진입, 가장 일반적이고 권장되는 방식
+```bash
+# 1. 이미지로부터 임시 컨테이너 생성 및 bash 실행
+docker run -it --rm --entrypoint /bin/bash django-test-app
+```
+* 셸 진입 후 확인 가능:
+```bash
+# 컨테이너 내에서
+ls /
+cat /app/requirements.txt
+```
+
+## 컨테이너 셸에서 빠져 나오려면
+* exit
+* Ctrl + D
+

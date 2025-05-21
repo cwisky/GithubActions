@@ -461,6 +461,14 @@ jobs:
           git commit -m "Update commit-log.txt [bot]" || echo "No changes to commit"
           git push
 ```
+
+## 셸 스크립트의 || 연산자의 작동 방식
+* '||' 왼쪽의 명령이 실패하면 오른쪽 명령이 실행된다
+* git commit 명령은 아무런 변경이 없는 내용을 commit 하려고 하면 exit(1)으로 종료하면서 실패를 나타낸다
+```yml
+git commit -m "message" || echo "No changes to commit"
+```
+
 ## 위의 코드에서 사용된 서식 문자열 속의 변환 문자 해석 (포맷 코드)
 | 포맷 코드       | 의미                                |
 | ----------- | --------------------------------- |
@@ -471,3 +479,45 @@ jobs:
 | `%s`        | Subject – 커밋 메시지 제목 (첫 줄)         |
 | `Commit: `  | 문자열 (커밋 해시 앞에 붙이는 라벨)             |
 | `%H`        | Commit Hash – 전체 40자리 SHA-1 커밋 ID |
+
+## 리파지토리 안에 있는 README.md 파일의 한단에 각 개발자의 push 이력을 추가하는 예
+```yml
+name: Append Push Info to README
+
+on:
+  push:
+    branches:
+      - main  # 또는 dev 등 원하는 브랜치
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme-log:
+    if: "!contains(github.event.head_commit.message, '[bot]')"  # 반복 방지
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Configure Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions@github.com"
+
+      - name: Append commit info to README.md
+        run: |
+          echo -e "\n### 📝 Commit Log\n" >> README.md   # escape 문자 해석 요청
+          echo "**Author:** $(git log -1 --pretty=format:'%an')" >> README.md    # git log --> 문자열 출력
+          echo "**Message:** $(git log -1 --pretty=format:'%s')" >> README.md
+          echo "**Commit:** $(git log -1 --pretty=format:'%H')" >> README.md
+          echo "**Date:** $(date '+%Y-%m-%d %H:%M:%S')" >> README.md      # +는 기본 출력 대신 내가 지정한 형식을 사용해 출력하라는 의미
+          echo "" >> README.md
+
+      - name: Commit and push changes
+        run: |
+          git add README.md
+          git commit -m "Update README with commit info [bot]" || echo "No changes"
+          git push
+```

@@ -1,6 +1,28 @@
 # Docker, Django Image 생성
 * WSL, Docker 통합 설정된 상태에서 진행
 
+## 웹앱과 일반 앱의 Docker 설정 차이
+* Web App
+```dockerfile
+FROM python:3.10
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+EXPOSE 8000
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+```
+* 이미지 실행 : docker run -p 8000:8000 myimage, -d 가능(detach, 백그라운드실행), --rm 가능하지만 권장되지 않음
+  
+* 일반 APP
+```dockerfile
+FROM python:3.10
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+CMD ["python", "job.py"]
+```
+* 이미지 실행 :docker run myimage,  --rm 가능(실행 후 컨테이너 삭제)
+  
 ## 1단계: Django 프로젝트 생성 (WSL2 내 Ubuntu 터미널)
 ```bash
 # 필요한 패키지 설치
@@ -9,7 +31,7 @@ sudo apt update && sudo apt install python3-pip python3-venv
 # 새 디렉토리 생성 후 진입
 mkdir django_docker_project && cd django_docker_project
 
-# 가상환경 생성 및 활성화
+# 가상환경 생성 및 활성화, 
 python3 -m venv venv
 source venv/bin/activate
 

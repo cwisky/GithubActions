@@ -341,6 +341,11 @@ sudo apt install -y docker.io
 sudo usermod -aG docker ubuntu
 newgrp docker
 ```
+
+* EC2에 원격 접속을 위한 SSH 클라이언트 툴(PuTTY) 
+  + https://www.putty.org/
+  + PuTTY를 설치하면 PuTTYGen도 설치되는데 이를 사용하여 .ppk -> .pen 포맷 전환이 가능함
+
 * 설치된 Docker 테스트
 ```docker
 docker run hello-world

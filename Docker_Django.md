@@ -61,14 +61,15 @@ python manage.py runserver
   + Python 3용 pip(패키지 설치 도구)
 * python3-venv
 
+### AWS 등 다른 시스템에 배포할 목적이라면 프로젝트 settings.py 안에서 다음과 같이 설정해야 한다
+* ALLOWED_HOSTS = ['*'] 혹은 보안상 더 안전하게 하려면 아래처럼...
+* ALLOWED_HOSTS = ['3.38.209.71']
+
+
 ## 2단계: requirements.txt 파일 생성
 ```bash
 pip freeze > requirements.txt
 ```
-
-### AWS 등 다른 시스템에 배포할 목적이라면 프로젝트 settings.py 안에서 다음과 같이 설정해야 한다
-* ALLOWED_HOSTS = ['*'] 혹은 보안상 더 안전하게 하려면 아래처럼...
-* ALLOWED_HOSTS = ['3.38.209.71']
 
 ## 3단계: Dockerfile 생성
 * WSL2의 django_docker_project 폴더에 Dockerfile 생성:

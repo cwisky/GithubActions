@@ -449,7 +449,7 @@ git push
 ```
 * aws-deploy.yml
 ```yml
-# .github/workflows/aws-deploy.yml
+# .github/workflows/aws-deploy.yml, AWS EC2 ubuntu 대상 배포 성공한 예
 name: Deploy to EC2 (build on destination)
 
 on:
@@ -467,23 +467,23 @@ jobs:
       uses: appleboy/scp-action@v0.1.4
       with:
         host: ${{ secrets.EC2_HOST }}
-        username: ec2-user
-        key: ${{ secrets.EC2_KEY }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_KEY }}
         source: "."
-        target: "/home/ec2-user/myapp"
+        target: "/home/ubuntu/web"   # 해당 디렉토리가 없어도 scp-action은 자동으로 생성함
 
     - name: SSH into EC2 and deploy
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.EC2_HOST }}
-        username: ec2-user
-        key: ${{ secrets.EC2_KEY }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_KEY }}
         script: |
-          cd /home/ec2-user/myapp
-          docker stop myapp || true
-          docker rm myapp || true
-          docker build -t myapp .
-          docker run -d --name myapp -p 80:80 myapp
+          cd /home/ubuntu/web
+          docker stop simple_django_web || true
+          docker rm simple_django_web || true
+          docker build -t simple_django_web ./simple_web
+          docker run -d --name simple_django_web -p 8000:8000 simple_django_web
 ```
 
 # 각 팀원의 push내역을 파일에 기록하고 리파지토리에 반영하는 yml 예

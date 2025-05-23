@@ -424,6 +424,58 @@ git push
 ▶️ GitHub → Actions → 워크플로우 > yml 파일명(deploy) > 실행 확인  
 * 로그에 다음이 나오면 성공:  ✅ 프로그램 실행됨: 2025-05-17 08:10:00
 
+## Github Actions을 활용하여 AWS에 배포하는 가장 합리적이고 실용적인 방식
+* 코드만 전달하는 방식은 이미지를 전송하는 방식보다 데이터가 적어진다
+* 적은 데이터만 전송하므로 전송 시간이 빠르다
+```text
+[로컬 Git push]
+      ↓
+[GitHub Actions]
+      ↓
+(1) EC2로 코드 복사 (scp or rsync)
+(2) SSH로 명령 실행
+    → docker build
+    → docker run (또는 restart)
+```
+* aws-deploy.yml
+```yml
+# .github/workflows/aws-deploy.yml
+name: Deploy to EC2 (build on destination)
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Copy code to EC2
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ec2-user
+        key: ${{ secrets.EC2_KEY }}
+        source: "."
+        target: "/home/ec2-user/myapp"
+
+    - name: SSH into EC2 and deploy
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ec2-user
+        key: ${{ secrets.EC2_KEY }}
+        script: |
+          cd /home/ec2-user/myapp
+          docker stop myapp || true
+          docker rm myapp || true
+          docker build -t myapp .
+          docker run -d --name myapp -p 80:80 myapp
+```
+
 # 각 팀원의 push내역을 파일에 기록하고 리파지토리에 반영하는 yml 예
 ```yml
 name: Log Commits

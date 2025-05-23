@@ -335,6 +335,7 @@ git push -u origin main
 | 공개키 등록    | GitHub Actions에서 접속할 수 있도록 SSH 공개키 등록 |
 | 보안그룹      | 포트 22 (SSH), 80, 443 열기               |
 | Docker 설치 | 아래 명령 실행                              |
+
 ```bash
 sudo apt update
 sudo apt install -y docker.io
@@ -412,7 +413,7 @@ jobs:
             cat log.txt
 ```
 📌 GitHub Secrets 설정  
-* GitHub 저장소 > Settings > Secrets and variables > Actions > New Repository secret
+* GitHub 저장소 > Repository > Settings > Secrets and variables > Actions > Secrets > Repository Secrets > New repository secret > 이름, 값 입력
 
 | 이름            | 값                                     |
 | ------------- | ------------------------------------- |
@@ -420,6 +421,7 @@ jobs:
 | `EC2_SSH_KEY` | EC2에 등록된 개인키 (ex: `~/.ssh/id_rsa` 내용) |
 * EC2_SSH_KEY에 사용해야 하는 암호는 EC2 설정시에 다운로드한 .pem 파일의 내용을 그대로 복사하여 적용하면 된다
 * 만약에 PuTTY 사용을 위해 .ppk 파일을 다운로드했다면 PuTTYgen에서 .ppk -> .pem 형식으로 변환하면 된다
+* PuTTY 설치시 PuTTYGen도 설치되므로 실행하여 Load > .ppk 선택 > Conversions → Export OpenSSH key > .pem 파일로 저장 > 메모장에서 .pem 파일 열고 복사하여 사용함
 
 ## [6단계] 테스트 및 확인  
 ▶️ 코드 푸시  

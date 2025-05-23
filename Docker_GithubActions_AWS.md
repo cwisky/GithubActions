@@ -402,7 +402,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ~/python-app
-            docker build -t python-test-app .
+            docker build -t python-test-app .   # Dockerfile의 위치에 따라 경로 설정
             docker run --rm python-test-app
             cat log.txt
 ```

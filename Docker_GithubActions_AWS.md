@@ -259,6 +259,9 @@ docker cp mylogtest:/app/log.txt ./log.txt   # mylogtest컨테이너의 app/log.
 cat log.txt    # 현재 디렉토리에 복사된 log.txt 파일 내용 표시
 ```
 
+## 컨테이너 안에서 생성된 파일은 컨테이너를 삭제하면 함께 삭제되므로 Volume을 지정할 필요가 있다
+* docker run -d -v /host/data:/container/data [이미지 이름]
+
 ## [3단계] GitHub 리파지토리에 프로젝트 업로드 및 github actions에 의해 도커 이미지 생성 테스트
 * 로컬 도커에서 이미지로 생성된 프로그램을 실행했을 때 문제가 없다면 코드를 push하여 github actions가 이미지를 생성(빌드)하도록 한다
 * .github/workflows/image_build.yml

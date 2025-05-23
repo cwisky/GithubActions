@@ -295,7 +295,7 @@ jobs:
       - name: Build and Push Docker Image
         run: |
           IMAGE_NAME=ghcr.io/${{ github.repository }}:latest
-          docker build -t $IMAGE_NAME .
+          docker build -t $IMAGE_NAME .   # Dockerfile의 위치에 따라 경로를 변경해야 함
           docker push $IMAGE_NAME
 ```
 * 아래와 같이 로컬 리파지토리에서 push 하여 위의 워크플로우에서 의해 도커 이미지가 생성되는지 확인

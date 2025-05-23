@@ -369,7 +369,7 @@ jobs:
           echo "👤 Triggered by: ${{ github.actor }}"
 ```
 
-📁 .github/workflows/deploy.yml  
+📁 .github/workflows/deploy.yml  (100% 자동화된 배포)
 ```yml
 name: Deploy to EC2
 

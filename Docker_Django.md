@@ -80,13 +80,13 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 
 # 필요 파일 복사
-COPY requirements.txt /app/
-
-# 라이브러리 설치
-RUN pip install --upgrade pip && pip install -r requirements.txt
+#COPY requirements.txt /app/
 
 # 전체 프로젝트 복사
 COPY . /app/
+
+# 라이브러리 설치
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # 포트 노출
 EXPOSE 8000

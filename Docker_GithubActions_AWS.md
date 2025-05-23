@@ -482,7 +482,7 @@ jobs:
           cd /home/ubuntu/web
           docker stop simple_django_web || true
           docker rm simple_django_web || true
-          docker build -t simple_django_web ./simple_web
+          docker build -t simple_django_web ./simple_web   # Dockerfile의 경로 지정
           docker run -d --name simple_django_web -p 8000:8000 simple_django_web
 ```
 

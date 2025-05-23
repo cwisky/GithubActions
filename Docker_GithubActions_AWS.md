@@ -339,7 +339,7 @@ git push -u origin main
 ```bash
 sudo apt update
 sudo apt install -y docker.io
-sudo usermod -aG docker ubuntu
+sudo usermod -aG docker ubuntu   # docker 그룹에 ubuntu 추가
 newgrp docker
 ```
 

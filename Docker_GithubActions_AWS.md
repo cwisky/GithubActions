@@ -436,7 +436,9 @@ git push
 ## Github Actions을 활용하여 AWS에 배포하는 가장 합리적이고 실용적인 방식
 * 코드만 전달하는 방식은 이미지를 전송하는 방식보다 데이터가 적어진다
 * 적은 데이터만 전송하므로 전송 시간이 빠르다
-* ${{ secrets.EC2_KEY }} 와 ${{ secrets.EC2_SSH_KEY }}는 기능적으로 동일하며, 이름만 다를 뿐임
+* ${{ secrets.EC2_KEY }} 와 ${{ secrets.EC2_SSH_KEY }}는 github actions에서 설정한 이름과 일치해야 한다
+* Django 웹프로그램을 배포할 때는 settings.py에서 아래처럼 실행할 호스트를 지정해야 한다
+* ALLOWED_HOSTS = ['44.202.85.169', 'localhost', '127.0.0.1'] 
 ```text
 [로컬 Git push]
       ↓
